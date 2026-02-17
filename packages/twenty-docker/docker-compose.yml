@@ -1,8 +1,11 @@
 name: twenty
 
 services:
-  server:
-    image: twentycrm/twenty:${TAG:-latest}
+    server:
+    # image: twentycrm/twenty:${TAG:-latest}   ← REMOVA ou comente essa linha
+    build:                                      # ← ADICIONE isso
+      context: .                                # pasta atual (raiz do código)
+      dockerfile: Dockerfile    
     volumes:
       - server-local-data:/app/packages/twenty-server/.local-storage
     ports:
@@ -58,7 +61,10 @@ services:
     restart: always
 
   worker:
-    image: twentycrm/twenty:${TAG:-latest}
+     # image: twentycrm/twenty:${TAG:-latest}   ← REMOVA ou comente
+    build:                                      # ← ADICIONE isso (mesmo build do server)
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - server-local-data:/app/packages/twenty-server/.local-storage
     command: ["yarn", "worker:prod"]
