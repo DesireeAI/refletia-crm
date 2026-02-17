@@ -1,0 +1,15 @@
+export enum FileFolder {
+  ProfilePicture = 'profile-picture',
+  WorkspaceLogo = 'workspace-logo',
+  Attachment = 'attachment',
+  PersonPicture = 'person-picture',
+  LogicFunction = 'logic-function',
+  LogicFunctionToDelete = 'logic-function-to-delete',
+  File = 'file',
+  AgentChat = 'agent-chat',
+  BuiltFunction = 'built-function',
+  BuiltFrontComponent = 'built-front-component',
+  PublicAsset = 'public-asset',
+  Source = 'source',
+  FilesField = 'files-field',
+}
